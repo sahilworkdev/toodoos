@@ -6,8 +6,8 @@ import React from "react";
 
 const links = [
   { href: "/", name: "Home" },
-  { href: "/about", name: "About" },
   { href: "/todos", name: "Todos" },
+  { href: "/add-todo", name: "Add todo" },
 ];
 
 const Navbar = () => {
@@ -37,9 +37,9 @@ const Navbar = () => {
             );
           })}
 
-          <SignedOut>
+          {/* <SignedOut>
             <SignInButton />
-          </SignedOut>
+          </SignedOut> */}
 
           <SignedIn>
             <UserButton />
