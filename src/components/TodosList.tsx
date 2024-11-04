@@ -1,10 +1,12 @@
+import prisma from "@/lib/db";
 import React from "react";
 
 const TodosList = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-  const todos = await response.json();
-  console.log(todos);
+  // const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+  // const todos = await response.json();
+  // console.log(todos);
+  const todos = await prisma.todo.findMany();
   return (
     <div className="flex mx-auto flex-col items-center justify-between max-w-[600px] sm:max-w-[600px]">
       <ul className="flex flex-col items-center justify-start gap-4">

@@ -1,4 +1,4 @@
-import Form from "@/components/Form";
+import CreateTodoForm from "@/components/CreateTodoForm";
 import React from "react";
 
 const page = () => {
@@ -7,7 +7,7 @@ const page = () => {
       <h1 className="text- sm:text-3xl font-bold text-zinc-900 mb-4">
         Add Todo
       </h1>
-      <Form />
+      <CreateTodoForm />
     </div>
   );
 };
