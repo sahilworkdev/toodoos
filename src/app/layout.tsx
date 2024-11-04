@@ -3,14 +3,15 @@ import localFont from "next/font/local";
 import "./globals.css";
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
+  // SignInButton,
+  // SignedIn,
+  // SignedOut,
+  // UserButton,
 } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Container from "@/components/Container";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +39,7 @@ export default function RootLayout({
       <html lang="en">
         <body className="bg-zinc-100 ">
           <Container>
+            <Toaster position="top-center" />
             <Navbar />
             {children}
             <Footer />

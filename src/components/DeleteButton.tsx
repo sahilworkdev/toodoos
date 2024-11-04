@@ -1,7 +1,9 @@
 import { deleteTodo } from "@/actions/action";
 
+
 export default function DeleteButton({ id }: { id: string }) {
   const deleteWithId = deleteTodo.bind(null, id);
+
 
   return (
     <form action={deleteWithId}>

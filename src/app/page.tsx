@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Hero from "../../public/hero.svg";
 import { FiCopy } from "react-icons/fi";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 export default function Home() {
   const handleCopy = () => {
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <main className="justify-center items-center flex flex-col flex-grow overflow-x-hidden">
-      <Toaster position="top-center" />
+     
       <Image
         src={Hero}
         width={350}

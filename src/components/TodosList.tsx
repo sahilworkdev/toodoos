@@ -1,17 +1,16 @@
 "use server";
 
 import prisma from "@/lib/db";
-// import { useUser } from "@clerk/nextjs";
+
 import { auth } from "@clerk/nextjs/server";
 import React from "react";
 import DeleteButton from "./DeleteButton";
-// import EditButton from "./EditButton";
+
 import Link from "next/link";
 
 const TodosList = async () => {
   const { userId } = auth();
   await new Promise((resolve) => setTimeout(resolve, 1000));
-
 
   // Fetch todos that belong to the logged-in user
   const todos = await prisma.todo.findMany({
@@ -30,7 +29,6 @@ const TodosList = async () => {
               <Link href={`/todos/${todo.id}`}>{todo.title}</Link>
 
               <DeleteButton id={todo.id} />
-           
             </li>
           );
         })}
