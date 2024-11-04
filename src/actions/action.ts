@@ -28,10 +28,9 @@ export async function createTodo(formData: FormData) {
       userId,
     },
   });
+
   redirect("/todos");
 }
-
-
 
 //delete todo
 export async function deleteTodo(todoId: string) {
@@ -54,9 +53,9 @@ export async function deleteTodo(todoId: string) {
   await prisma.todo.delete({
     where: { id: todoId },
   });
+
   redirect("/todos");
 }
-
 
 //edit todo
 export async function editTodo(todoId: string, formData: FormData) {
@@ -86,5 +85,6 @@ export async function editTodo(todoId: string, formData: FormData) {
       description,
     },
   });
+ 
   redirect("/todos");
 }

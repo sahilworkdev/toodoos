@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const TodoForm = async ({
   action,
   btnText,
@@ -9,7 +10,12 @@ const TodoForm = async ({
   btnText: string;
   initialData?: { title: string; description: string };
 }) => {
+
+  
+
   return (
+    <main className="flex items-center justify-center flex-col py-14 sm:py-16">
+
     <form action={action} className="flex flex-col">
       <input
         type="text"
@@ -33,6 +39,7 @@ const TodoForm = async ({
         {btnText}
       </button>
     </form>
+    </main>
   );
 };
 

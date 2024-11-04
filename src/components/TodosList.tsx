@@ -11,10 +11,7 @@ import Link from "next/link";
 const TodosList = async () => {
   const { userId } = auth();
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  // const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-  // const todos = await response.json();
-  // console.log(todos);
-  // const todos = await prisma.todo.findMany();
+
 
   // Fetch todos that belong to the logged-in user
   const todos = await prisma.todo.findMany({
@@ -33,7 +30,7 @@ const TodosList = async () => {
               <Link href={`/todos/${todo.id}`}>{todo.title}</Link>
 
               <DeleteButton id={todo.id} />
-              {/* <EditButton id={todo.id} /> */}
+           
             </li>
           );
         })}
