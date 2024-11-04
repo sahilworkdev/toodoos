@@ -1,11 +1,20 @@
 import React from "react";
 
-const Form = async ({ action, btnText }: { action: any; btnText: string }) => {
+const TodoForm = async ({
+  action,
+  btnText,
+  initialData,
+}: {
+  action: any;
+  btnText: string;
+  initialData?: { title: string; description: string };
+}) => {
   return (
     <form action={action} className="flex flex-col">
       <input
         type="text"
         name="title"
+        defaultValue={initialData?.title || ""}
         placeholder="Title"
         className="border-2 border-zinc-700 px-4 py-2 rounded-md mb-4"
         required
@@ -16,6 +25,7 @@ const Form = async ({ action, btnText }: { action: any; btnText: string }) => {
         cols={30}
         rows={10}
         placeholder="Description"
+        defaultValue={initialData?.description || ""}
         className="border-2 border-zinc-700 px-4 py-2 rounded-md mb-4"
         required
       />
@@ -26,4 +36,4 @@ const Form = async ({ action, btnText }: { action: any; btnText: string }) => {
   );
 };
 
-export default Form;
+export default TodoForm;
