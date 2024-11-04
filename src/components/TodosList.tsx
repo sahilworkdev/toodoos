@@ -1,9 +1,10 @@
-"use server"
-import { deleteTodo } from "@/actions/action";
+"use server";
+
 import prisma from "@/lib/db";
 // import { useUser } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import React from "react";
+import DeleteButton from "./DeleteButton";
 
 const TodosList = async () => {
   const { userId } = auth();
@@ -29,12 +30,7 @@ const TodosList = async () => {
             >
               {todo.title}
 
-              <form action={deleteTodo}>
-                <button className="py-1  text-red-400" >
-                  Delete
-                </button>
-              </form>
-
+              <DeleteButton id={todo.id} />
               <button className="text-blue-400 py-1 ">Edit</button>
             </li>
           );
