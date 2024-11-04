@@ -1,4 +1,4 @@
-import CreateTodoForm from "@/components/CreateTodoForm";
+import TodoForm from "@/components/TodoForm";
 import React from "react";
 import { createTodo } from "@/actions/action";
 
@@ -8,7 +8,7 @@ const page = () => {
       <h1 className="text- sm:text-3xl font-bold text-zinc-900 mb-4">
         Add Todo
       </h1>
-      <CreateTodoForm action={createTodo} btnText={"Add Todo"} />
+      <TodoForm action={createTodo} btnText={"Add Todo"} />
     </div>
   );
 };
