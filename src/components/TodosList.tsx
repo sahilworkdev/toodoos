@@ -1,12 +1,23 @@
+"use server"
+import { deleteTodo } from "@/actions/action";
 import prisma from "@/lib/db";
+// import { useUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import React from "react";
 
 const TodosList = async () => {
+  const { userId } = auth();
   await new Promise((resolve) => setTimeout(resolve, 1000));
   // const response = await fetch("https://jsonplaceholder.typicode.com/todos");
   // const todos = await response.json();
   // console.log(todos);
-  const todos = await prisma.todo.findMany();
+  // const todos = await prisma.todo.findMany();
+
+  // Fetch todos that belong to the logged-in user
+  const todos = await prisma.todo.findMany({
+    where: { userId: userId! },
+  });
+
   return (
     <div className="flex mx-auto flex-col items-center justify-between max-w-[600px] sm:max-w-[600px]">
       <ul className="flex flex-col items-center justify-start gap-4">
@@ -17,7 +28,13 @@ const TodosList = async () => {
               className="text-lg text-zinc-800 flex items-center justify-between gap-6"
             >
               {todo.title}
-              <button className="py-1  text-red-400">Delete</button>
+
+              <form action={deleteTodo}>
+                <button className="py-1  text-red-400" >
+                  Delete
+                </button>
+              </form>
+
               <button className="text-blue-400 py-1 ">Edit</button>
             </li>
           );
