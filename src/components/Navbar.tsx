@@ -22,7 +22,7 @@ const Navbar = () => {
         <ul className="flex gap-4 items-center justify-center">
           {links.map((link) => {
             return (
-              <li>
+              <li key={link.href}>
                 <Link
                   href={link.href}
                   className={` ${
