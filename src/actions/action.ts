@@ -27,9 +27,7 @@ export async function createTodo(formData: FormData) {
     },
   });
   redirect("/todos");
-  
 }
-
 
 export async function deleteTodo(todoId: string) {
   const { userId } = auth();
@@ -39,17 +37,17 @@ export async function deleteTodo(todoId: string) {
   }
 
   // Ensure that only the owner can delete their todo
-  // const todo = await prisma.todo.findUnique({
-  //   where: { id: todoId },
-  // });
+  const todo = await prisma.todo.findUnique({
+    where: { id: todoId },
+  });
 
-  // if (!todo || todo.userId !== userId) {
-  //   throw new Error("Unauthorized or Todo not found");
-  // }
+  if (!todo || todo.userId !== userId) {
+    throw new Error("Unauthorized or Todo not found");
+  }
 
-  // // Delete from DB
-  // await prisma.todo.delete({
-  //   where: { id: todoId },
-  // });
+  // Delete from DB
+  await prisma.todo.delete({
+    where: { id: todoId },
+  });
   redirect("/todos");
 }
