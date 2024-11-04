@@ -12,7 +12,7 @@ const links = [
 
 const Navbar = () => {
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
   return (
     <header className="flex justify-between items-center px-6 py-4 border-b">
       <Link href="/" className="text-xl font-bold">

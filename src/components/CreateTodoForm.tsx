@@ -1,9 +1,8 @@
-import { createTodo } from "@/actions/action";
 import React from "react";
 
-const Form = async () => {
+const Form = async ({ action, btnText }: { action: any; btnText: string }) => {
   return (
-    <form action={createTodo} className="flex flex-col">
+    <form action={action} className="flex flex-col">
       <input
         type="text"
         name="title"
@@ -21,7 +20,7 @@ const Form = async () => {
         required
       />
       <button className="px-4 py-2 w-full bg-zinc-900 text-white font-medium rounded-md hover:bg-zinc-700">
-        Add Todo
+        {btnText}
       </button>
     </form>
   );
